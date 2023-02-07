@@ -12,7 +12,7 @@
             <ul>
                 <li>
                     <i class="fa-solid fa-plus"></i>
-                    <a href="#" class="button">Dodaj pojazd</a>
+                    <a href="addCar" class="button">Dodaj pojazd</a>
                 </li>
                 <li>
                     <i class="fa-regular fa-hand"></i>
