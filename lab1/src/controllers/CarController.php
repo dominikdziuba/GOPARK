@@ -2,7 +2,7 @@
 
 require_once 'AppController.php';
 require_once __DIR__ .'/../models/Car.php';
-
+require_once __DIR__.'/../repository/CarRepository.php';
 class CarController extends AppController
 {
     const MAX_FILE_SIZE = 1024 * 1024;
@@ -10,6 +10,13 @@ class CarController extends AppController
     const UPLOAD_DIRECTORY = '/../public/uploads/';
 
     private $message = [];
+    private $carRepository;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->carRepository = new CarRepository();
+    }
 
     public function addCar()
     {
@@ -21,7 +28,7 @@ class CarController extends AppController
 
 
             $car = new Car($_POST['brand'], $_POST['model'],$_POST['register'], $_FILES['file']['name']);
-
+            $this->carRepository->addCar($car);
             return $this->render('panels', ['messages' => $this->message]);
         }
         return $this->render('add-car', ['messages' => $this->message]);
