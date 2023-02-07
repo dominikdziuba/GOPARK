@@ -7,7 +7,7 @@ require_once __DIR__.'/../models/Car.php';
 class CarRepository extends Repository
 {
 
-    public function getProject(int $id): ?Car
+    public function getCar(int $id): ?Car
     {
         $stmt = $this->database->connect()->prepare('
             SELECT * FROM public.cars WHERE id = :id
@@ -42,5 +42,27 @@ class CarRepository extends Repository
             $car->getRegister(),
             $car->getImage()
         ]);
+    }
+
+    public function getCars(): array
+    {
+        $result = [];
+
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM cars;
+        ');
+        $stmt->execute();
+        $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($cars as $car) {
+            $result[] = new Car(
+                $car['brand'],
+                $car['model'],
+                $car['register'],
+                $car['picture']
+            );
+        }
+
+        return $result;
     }
 }

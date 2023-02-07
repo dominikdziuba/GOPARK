@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
-
-    <script src="https://kit.fontawesome.com/098b29f9ba.js" crossorigin="anonymous"></script>    <title>PANELS</title>
+    <link rel="stylesheet" type="text/css" href="public/css/cars.css">
+    <script src="https://kit.fontawesome.com/098b29f9ba.js" crossorigin="anonymous"></script>
+    <title>CARS</title>
 </head>
 
 <body>
@@ -35,32 +36,23 @@
     </nav>
     <main>
         <header>
-
             <div class="logout">
                 <i class="fa-solid fa-door-open"></i>
                 Wyloguj
             </div>
 
         </header>
-        <section class="data">
-            <h1>UPLOAD</h1>
-            <form action="addCar" method="POST" ENCTYPE="multipart/form-data">
-                <div class="messages">
-                    <?php
-                    if(isset($messages)){
-                        foreach($messages as $message) {
-                            echo $message;
-                        }
-                    }
-                    ?>
+        <section class="cars">
+            <?php foreach($cars as $car): ?>
+                <div id="car-1">
+                    <img src="public/uploads/<?= $car->getImage(); ?>">
+                    <div>
+                        <h2><?= $car->getBrand(); ?></h2>
+                        <h2><?= $car->getModel(); ?></h2>
+                        <h2><?= $car->getRegister(); ?></h2>
+                    </div>
                 </div>
-                <input name="brand" type="text" placeholder="Marka">
-                <input name="model" type="text" placeholder="Model">
-                <input name="register" type="text" placeholder="Nr rej.">
-
-                <input type="file" name="file"/><br/>
-                <button type="submit">send</button>
-            </form>
+            <?php endforeach; ?>
         </section>
     </main>
 </div>

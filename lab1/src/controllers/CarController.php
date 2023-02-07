@@ -29,8 +29,9 @@ class CarController extends AppController
 
             $car = new Car($_POST['brand'], $_POST['model'],$_POST['register'], $_FILES['file']['name']);
             $this->carRepository->addCar($car);
-            return $this->render('panels', ['messages' => $this->message]);
-        }
+            return $this->render('your-cars', [
+                'messages' => $this->message,
+                'cars' => $this->carRepository->getCars()]);       }
         return $this->render('add-car', ['messages' => $this->message]);
     }
 
@@ -47,5 +48,12 @@ class CarController extends AppController
             return false;
         }
         return true;
+    }
+
+    public function showCars()
+    {
+
+        $cars = $this->carRepository->getCars();
+        $this->render('your-cars', ['cars' => $cars]);
     }
 }

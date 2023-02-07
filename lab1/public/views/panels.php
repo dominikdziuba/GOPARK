@@ -16,7 +16,7 @@
                 </li>
                 <li>
                     <i class="fa-regular fa-hand"></i>
-                    <a href="#" class="button">Twoje pojazdy</a>
+                    <a href="showCars" class="button">Twoje pojazdy</a>
                 </li>
                 <li>
                     <i class="fa-solid fa-dollar-sign"></i>
@@ -34,12 +34,7 @@
             </ul>
         </nav>
         <main>
-            <header>                
-                <div class="go-back">
-                <i class="fa-solid fa-backward"></i>
-                Cofnij
-   
-                </div>
+            <header>
                 <div class="logout">
                     <i class="fa-solid fa-door-open"></i>
                     Wyloguj
