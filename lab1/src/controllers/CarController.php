@@ -1,8 +1,8 @@
 <?php
 
 require_once 'AppController.php';
-require_once __DIR__ .'/../models/Car.php';
-require_once __DIR__.'/../repository/CarRepository.php';
+require_once __DIR__ . '/../models/Car.php';
+require_once __DIR__ . '/../repository/CarRepository.php';
 class CarController extends AppController
 {
     const MAX_FILE_SIZE = 1024 * 1024;

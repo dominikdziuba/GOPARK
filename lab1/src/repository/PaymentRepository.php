@@ -1,6 +1,6 @@
 <?php
 require_once 'Repository.php';
-require_once __DIR__.'/../models/Payment.php';
+require_once __DIR__ . '/../models/Payment.php';
 class PaymentRepository extends Repository
 {
     public function getPayment(int $id): ?Payment

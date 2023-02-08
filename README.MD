@@ -39,12 +39,12 @@ These are the most important features:
 ## Screenshots
 There are some screenshots from my website.
 
-![Register](./scs/register.png)
-![Login](./scs/login.png)
-![Adding car](./scs/adding.png)
-![Your cars](./scs/your_cars.png)
-![Paying](./scs/paying.png)
-![History](./scs/history.png)
+![Register](scs/register.png)
+![Login](scs/login.png)
+![Adding car](scs/adding.png)
+![Your cars](scs/your_cars.png)
+![Paying](scs/paying.png)
+![History](scs/history.png)
 
 ## Launch
 

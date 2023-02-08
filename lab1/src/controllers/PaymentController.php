@@ -1,10 +1,10 @@
 <?php
 
 require_once 'AppController.php';
-require_once __DIR__ .'/../models/Car.php';
-require_once __DIR__ .'/../models/Payment.php';
-require_once __DIR__.'/../repository/CarRepository.php';
-require_once __DIR__.'/../repository/PaymentRepository.php';
+require_once __DIR__ . '/../models/Car.php';
+require_once __DIR__ . '/../models/Payment.php';
+require_once __DIR__ . '/../repository/CarRepository.php';
+require_once __DIR__ . '/../repository/PaymentRepository.php';
 class PaymentController extends AppController
 {
     private $carRepository;
