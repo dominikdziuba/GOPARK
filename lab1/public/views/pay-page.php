@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
-    <script src="https://kit.fontawesome.com/098b29f9ba.js" crossorigin="anonymous"></script>
-    <title>CARS</title>
+
+    <script src="https://kit.fontawesome.com/098b29f9ba.js" crossorigin="anonymous"></script>    <title>PANELS</title>
 </head>
 
 <body>
@@ -26,6 +26,7 @@
                 <i class="fa-solid fa-paperclip"></i>
                 <a href="history" class="button">Historia</a>
             </li>
+
             <li>
                 <i class="fa-regular fa-circle-dot"></i>
                 <a href="panels" class="button">Strona domowa</a>
@@ -41,16 +42,30 @@
             </div>
 
         </header>
-        <section class="cars">
-            <?php foreach ($cars as $car):?>
-                <div id="car-1">
-                    <img src="/public/uploads/<?= $car->getImage();?>">
-                    <h2>Nr rejestr.: <?= $car->getRegister();?></h2>
-                    <h2>Marka: <?=$car->getBrand();?></h2>
-                    <h2>Model: <?=$car->getModel();?></h2>
+        <section class="data">
+            <h1></h1>
 
+            <form action="payment" method="POST" ENCTYPE="multipart/form-data">
+                <div class="messages">
+                    <?php
+                    if(isset($messages)){
+                        foreach($messages as $message) {
+                            echo $message;
+                        }
+                    }
+                    ?>
                 </div>
-            <?php endforeach;?>
+                <input name="street" type="text" placeholder="Ulica">
+
+                <select name="selection">
+                    <?php foreach ($cars as $car):?>
+                        <option><?= $car->getRegister();?></option>
+
+                    <?php endforeach;?>
+                </select>
+                <input name="czas" type="text" placeholder="Czas parkowania(w godzinach)">
+
+                <button type="submit">Zapłać</button>
         </section>
     </main>
 </div>

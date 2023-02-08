@@ -11,5 +11,8 @@ Router::post('login', 'SecurityController');
 Router::post('addCar', 'CarController');
 Router::post('showCars', 'CarController');
 Router::post('register', 'SecurityController');
+Router::post('payment', 'PaymentController');
+Router::post('history', 'PaymentController');
+
 
 Router::run($path);

@@ -24,18 +24,13 @@ class SecurityController extends AppController {
 
         $user = $userRepository->getUser($email);
         if (!$user) {
-            return $this->render('login', ['messages' => ['User not exists!']]);
+            return $this->render('login', ['messages' => ['Użytkownik nie istnieje!']]);
         }
-        if ($user->getEmail() !== $email) {
-            return $this->render('login', ['messages' => ['User with this email not exist!']]);
-        }
-
-        if ($user->getPassword() !== $password) {
-            return $this->render('login', ['messages' => ['Wrong password!']]);
+        if ($user->getEmail() !== $email or !$this->checkPassword($password, $user->getPassword())) {
+            return $this->render('login', ['messages' => ['Niepoprawne dane logowania!']]);
         }
 
-        $url = "http://$_SERVER[HTTP_HOST]";
-        header("Location: {$url}/panels");
+        return $this->render('panels');
     }
 
     public function register()
@@ -51,13 +46,19 @@ class SecurityController extends AppController {
 
 
         if ($password !== $confirmedPassword) {
-            return $this->render('register', ['messages' => ['Please provide proper password']]);
+            return $this->render('register', ['messages' => ['Hasła nie są takie same']]);
         }
-        $user = new User( $email, md5($password));
+        $user = new User( $email,$this->hashPassword($password));
 
 
         $this->userRepository->addUser($user);
 
-        return $this->render('login', ['messages' => ['You\'ve been succesfully registrated!']]);
+        return $this->render('login', ['messages' => ['Zostałeś zarejestrowany']]);
+    }
+    private function hashPassword($pwd) : string {
+        return password_hash($pwd, PASSWORD_BCRYPT);
+    }
+    private function checkPassword($input, $hash) : bool {
+        return password_verify($input, $hash);
     }
 }

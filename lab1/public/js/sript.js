@@ -1,7 +1,7 @@
 const form = document.querySelector("form");
 const emailInput = form.querySelector('input[name="email"]');
 const confirmedPasswordInput = form.querySelector('input[name="confirmedPassword"]');
-
+const passwordInput = form.querySelector('input[name="password"]');
 function isEmail(email) {
     return /\S+@\S+\.\S+/.test(email);
 }
@@ -9,6 +9,11 @@ function isEmail(email) {
 function arePasswordsSame(password, confirmedPassword) {
     return password === confirmedPassword;
 }
+
+function itIsLongEnough(password){
+    return password.length >= 8;
+}
+
 
 function markValidation(element, condition) {
     !condition ? element.classList.add('no-valid') : element.classList.remove('no-valid');
@@ -34,5 +39,14 @@ function validatePassword() {
     );
 }
 
+function validateSizePassword(){
+    setTimeout(function (){
+            markValidation(passwordInput, itIsLongEnough(passwordInput.value));
+        },
+        1000
+    );
+}
+
 emailInput.addEventListener('keyup', validateEmail);
 confirmedPasswordInput.addEventListener('keyup', validatePassword);
+passwordInput.addEventListener('keyup', validateSizePassword);

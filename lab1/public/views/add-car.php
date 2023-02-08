@@ -20,15 +20,15 @@
             </li>
             <li>
                 <i class="fa-solid fa-dollar-sign"></i>
-                <a href="#" class="button">Opłać postój</a>
+                <a href="payment" class="button">Opłać postój</a>
             </li>
             <li>
                 <i class="fa-solid fa-paperclip"></i>
-                <a href="#" class="button">Historia</a>
+                <a href="history" class="button">Historia</a>
             </li>
             <li>
-                <i class="fa-regular fa-user"></i>
-                <a href="#" class="button">Twój profil</a>
+                <i class="fa-regular fa-circle-dot"></i>
+                <a href="panels" class="button">Strona domowa</a>
             </li>
 
         </ul>
@@ -38,12 +38,12 @@
 
             <div class="logout">
                 <i class="fa-solid fa-door-open"></i>
-                Wyloguj
+                <a href="login" class="logout"></a>
             </div>
 
         </header>
         <section class="data">
-            <h1>UPLOAD</h1>
+            <h1></h1>
             <form action="addCar" method="POST" ENCTYPE="multipart/form-data">
                 <div class="messages">
                     <?php
@@ -59,7 +59,7 @@
                 <input name="register" type="text" placeholder="Nr rej.">
 
                 <input type="file" name="file"/><br/>
-                <button type="submit">send</button>
+                <button type="submit">Wyślij</button>
             </form>
         </section>
     </main>

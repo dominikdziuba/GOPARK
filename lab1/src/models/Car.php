@@ -52,13 +52,13 @@ class Car
     }
 
 
-    public function getImage():string
+    public function getImage()
     {
         return $this->image;
     }
 
 
-    public function setImage(string $image): void
+    public function setImage( $image): void
     {
         $this->image = $image;
     }

@@ -17,6 +17,12 @@ class CarController extends AppController
         parent::__construct();
         $this->carRepository = new CarRepository();
     }
+    public function showCars()
+    {
+
+        $cars = $this->carRepository->getCars();
+        $this->render('your-cars', ['cars' => $cars]);
+    }
 
     public function addCar()
     {
@@ -39,21 +45,16 @@ class CarController extends AppController
     private function validate(array $file): bool
     {
         if ($file['size'] > self::MAX_FILE_SIZE) {
-            $this->message[] = 'File is too large for destination file system.';
+            $this->message[] = 'Plik jest za duży.';
             return false;
         }
 
         if (!isset($file['type']) || !in_array($file['type'], self::SUPPORTED_TYPES)) {
-            $this->message[] = 'File type is not supported.';
+            $this->message[] = 'Niewspierany typ pliku.';
             return false;
         }
         return true;
     }
 
-    public function showCars()
-    {
 
-        $cars = $this->carRepository->getCars();
-        $this->render('your-cars', ['cars' => $cars]);
-    }
 }

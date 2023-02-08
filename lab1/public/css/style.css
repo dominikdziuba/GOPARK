@@ -50,7 +50,7 @@ button{
 
 }
 
-input{
+input, select{
     background-color: transparent;
     border: none;
     border-bottom: 1px solid gray;
@@ -180,14 +180,27 @@ header {
 }
 .logout{
     background: #B10D0D;
-    border-radius: 1.5em;
-    color: #D9D9D9;
-    letter-spacing: 0.1em;
+
+    border-radius: 1em;
+    margin-left: 2em;
+
     text-align: center;
-    width: 30%;
-    margin: 0;
+    letter-spacing: 0.72px;
+    color: #D9D9D9;
     padding: 0.2rem;
-    box-sizing: border-box;
+    width: 15%;
+}
+
+.button-logout {
+
+    border-radius: 1em;
+    margin-left: 2em;
+
+    text-align: center;
+    letter-spacing: 0.72px;
+    color: #D9D9D9;
+    padding: 0.2rem;
+    width: 60%;
 }
 .no-valid{
     border: 3px solid red;
@@ -196,3 +209,50 @@ header {
     outline: none;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: lightgray;
+}
+
+section{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2em;
+    padding: 2em;
+    overflow: auto;
+
+}
+
+
+.cars>div>img{
+    height: 50%;
+    width: 100%;
+    object-fit: cover;
+    border-radius:1em 1em 0 0 ;
+}
+
+.cars>div>div{
+    height: 50%;
+    color: black;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font: normal normal normal 20px/27px Segoe UI;
+    letter-spacing: 0.72px;
+    color: #D9D9D9;
+}
+
+.cars>div{
+    border:1px solid gray;
+    border-radius:1em 1em 0 0 ;
+    height: 400px;
+}

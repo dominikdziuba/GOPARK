@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
-    <script src="https://kit.fontawesome.com/098b29f9ba.js" crossorigin="anonymous"></script>
-    <title>CARS</title>
+
+    <script src="https://kit.fontawesome.com/098b29f9ba.js" crossorigin="anonymous"></script>    <title>PANELS</title>
 </head>
 
 <body>
@@ -30,7 +30,6 @@
                 <i class="fa-regular fa-circle-dot"></i>
                 <a href="panels" class="button">Strona domowa</a>
             </li>
-
         </ul>
     </nav>
     <main>
@@ -41,16 +40,25 @@
             </div>
 
         </header>
-        <section class="cars">
-            <?php foreach ($cars as $car):?>
-                <div id="car-1">
-                    <img src="/public/uploads/<?= $car->getImage();?>">
-                    <h2>Nr rejestr.: <?= $car->getRegister();?></h2>
-                    <h2>Marka: <?=$car->getBrand();?></h2>
-                    <h2>Model: <?=$car->getModel();?></h2>
+        <section class="data">
+            <table border = "1">
+                <tr>
+                    <th>nr_płatności</th>
+                    <th>ulica</th>
+                    <th>nr_rejestr.</th>
+                    <th>czas</th>
+                <?php foreach ($pays as $pay):?>
+                <?php for ($i = 1; $i <= 3; $i++)?>
+                </tr>
+                <tr id="record">
+                    <td><?=$pay->getPaymentNumber();?></td>
+                    <td><?=$pay->getStreetName();?></td>
+                    <td><?=$pay->getRegisterNumber();?></td>
+                    <td><?=$pay->getParkingTime();?></td>
+                </tr>
+                <?php endforeach;?>
+            </table>
 
-                </div>
-            <?php endforeach;?>
         </section>
     </main>
 </div>

@@ -2,6 +2,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
 
+
     <script src="https://kit.fontawesome.com/098b29f9ba.js" crossorigin="anonymous"></script>    <title>PANELS</title>
 </head>
 
@@ -20,24 +21,23 @@
                 </li>
                 <li>
                     <i class="fa-solid fa-dollar-sign"></i>
-                    <a href="#" class="button">Opłać postój</a>
+                    <a href="payment" class="button">Opłać postój</a>
                 </li>
                 <li>
                     <i class="fa-solid fa-paperclip"></i>
-                    <a href="#" class="button">Historia</a>
+                    <a href="history" class="button">Historia</a>
                 </li>
                 <li>
-                    <i class="fa-regular fa-user"></i>
-                    <a href="#" class="button">Twój profil</a>
+                    <i class="fa-regular fa-circle-dot"></i>
+                    <a href="panels" class="button">Strona domowa</a>
                 </li>
-
             </ul>
         </nav>
         <main>
             <header>
                 <div class="logout">
                     <i class="fa-solid fa-door-open"></i>
-                    Wyloguj
+                    <a href="login" class="logout"></a>
                 </div>
 
             </header>

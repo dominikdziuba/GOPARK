@@ -25,14 +25,14 @@ class CarRepository extends Repository
             $car['brand'],
             $car['model'],
             $car['register'],
-            $car['picture']
+            $car['image']
         );
     }
 
     public function addCar(Car $car): void
     {
         $stmt = $this->database->connect()->prepare('
-            INSERT INTO cars (brand, model, register, picture)
+            INSERT INTO cars (brand, model, register, image)
             VALUES (?, ?, ?, ?)
         ');
 
@@ -59,7 +59,7 @@ class CarRepository extends Repository
                 $car['brand'],
                 $car['model'],
                 $car['register'],
-                $car['picture']
+                $car['image']
             );
         }
 
